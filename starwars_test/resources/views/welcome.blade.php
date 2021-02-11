@@ -68,8 +68,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Star Wars - Test
+                    StarWars - Test
                 </div>
+
+                <a class="btn btn-primary" href="{{route('importData')}}" role="button">Link</a>
 
                 <div class="links">
                     <a href="#1">1</a>
