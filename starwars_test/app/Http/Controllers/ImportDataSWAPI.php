@@ -12,7 +12,7 @@ class ImportDataSWAPI extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function importData($data)
+    public function importData(Request $request)
     {
         $endpoint = "http://swapi.dev/api/starships";
         $client = new \GuzzleHttp\Client();
@@ -21,7 +21,10 @@ class ImportDataSWAPI extends Controller
 
         while ($aux == true) {
 
-            $response = $client->request('GET', $endpoint);
+            $response = $client->request('GET', $endpoint, ['query' => [
+                'key1' => 0,
+                'key2' => 0
+            ]]);
             $statusCode = $response->getStatusCode();
 
             dd(json_decode($response->getBody(), true));
